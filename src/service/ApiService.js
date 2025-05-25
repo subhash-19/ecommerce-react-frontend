@@ -225,18 +225,5 @@ export default class ApiService {
     static isAdmin() {
         const role = localStorage.getItem('role')
         return role === 'ADMIN'
-    }
-
-    // static async getCartFromDB() {
-    //     try {
-    //         const response = await axios.get(`${this.BASE_URL}/cart/cart-product`, {
-    //             headers: this.getHeader()
-    //         });
-
-    //         return response.data.cartItems; // Adjust if needed
-    //     } catch (error) {
-    //         console.error("Failed to fetch cart", error);
-    //         throw new Error("Failed to fetch cart");
-    //     }
-    // }    
+    }   
 }

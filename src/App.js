@@ -10,26 +10,39 @@ import CategoryProductsPage from "./component/pages/CategoryProductsPage";
 import CartPage from "./component/pages/CartPage";
 import LoginPage from "./component/pages/LoginPage";
 import RegisterPage from "./component/pages/RegisterPage";
+import ProfilePage from "./component/pages/ProfilePage";
+import AddressPage from "./component/pages/AddressPage";
+import AdminPage from "./component/Admin/AdminPage";
 
 export default function App() {
-
   return (
     <BrowserRouter>
       <CartProvider>
-        <Navbar />
-        <Routes>
-          {/* OUR ROUTES */}
-          <Route exact path='/' element={<Home />} />
-          <Route path="product/:productId" element={<ProductDetailsPage />} />
-          <Route path="/categories" element={<CategoryListPage />} />
-          <Route path="/category/:categoryId" element={<CategoryProductsPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
+        <div className="flex flex-col min-h-screen">
+          <Navbar />
 
-        </Routes>
-        <Footer />
+          <main className="flex-grow">
+            <Routes>
+              {/* OUR ROUTES */}
+              <Route exact path='/' element={<Home />} />
+              <Route path="product/:productId" element={<ProductDetailsPage />} />
+              <Route path="/categories" element={<CategoryListPage />} />
+              <Route path="/category/:categoryId" element={<CategoryProductsPage />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/login" element={<LoginPage />} />
+
+              <Route path="/profile" element={<ProtectedRoute element={<ProfilePage />} />} />
+              <Route path="/add-address" element={<ProtectedRoute element={<AddressPage />} />} />
+              <Route path="/edit-address" element={<ProtectedRoute element={<AddressPage />} />} />
+
+              <Route path="/admin" element={<AdminRoute element={<AdminPage />} />} />
+            </Routes>
+          </main>
+
+          <Footer />
+        </div>
       </CartProvider>
     </BrowserRouter>
-  )
+  );
 }

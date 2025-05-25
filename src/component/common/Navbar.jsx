@@ -35,7 +35,7 @@ const Navbar = () => {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full gap-4">
 
                     {/* Left 60% (Logo + Search) */}
-                    <div className="w-full md:w-[60%] flex items-center gap-4">
+                    <div className="w-full lg:w-[60%] flex items-center gap-4">
                         {/* Logo */}
                         <NavLink to="/">
                             <img src="/furniture-logo.png" alt="Furniture-logo" className="h-10" />
@@ -65,14 +65,14 @@ const Navbar = () => {
                     </div>
 
                     {/* Right 40% (Navigation Links) */}
-                    <div className="w-full md:w-[40%] flex flex-wrap md:justify-end justify-evenly items-center gap-4 text-sm font-medium">
+                    <div className="w-full lg:w-[40%] flex flex-wrap md:justify-end justify-evenly items-center md:gap-4 text-sm font-medium">
                         <NavLink to="/" className="hover:underline">Home</NavLink>
                         <NavLink to="/categories" className="hover:underline">Category</NavLink>
 
                         {/* ✅ Cart link with badge */}
                         <NavLink to="/cart" className="relative hover:underline flex items-center">
                             <ShoppingCart className="mr-1" />
-                            Cart
+                            {/* Cart */}
                             {totalProducts > 0 && (
                                 <span className="absolute -top-2 -right-2 bg-blue-700 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
                                     {totalProducts}
@@ -81,7 +81,7 @@ const Navbar = () => {
                         </NavLink>
 
                         {isAuthenticated && (
-                            <NavLink to="/profile" className="hover:underline">My Account</NavLink>
+                            <NavLink to="/profile" className="hover:underline">Account</NavLink>
                         )}
                         {isAdmin && (
                             <NavLink to="/admin" className="hover:underline">Admin</NavLink>
